@@ -1,1 +1,0 @@
-# AtsuMiyai.github.io
