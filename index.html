@@ -1,427 +1,684 @@
 <!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Atsuyuki Miyai 宮井 淳行</title>
-
   <meta name="author" content="Atsuyuki Miyai 宮井 淳行">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <meta name="google-site-verification" content="31ZvV8lDKRzmoX4jcWhS1mvt2mwfbRqbmh8XR1LRI1U" />
+  <style>
+    :root {
+      --primary-color: #333;
+      --secondary-color: #f09228;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --border-color: #eaeaea;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+      background: linear-gradient(160deg, #ffffff 0%, #f0f8ff 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .profile-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    
+    .profile-image {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .profile-image:hover {
+      transform: scale(1.03);
+    }
+    
+    .profile-info {
+      max-width: 600px;
+      text-align: left;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+    
+    .bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+    
+    .highlight {
+      background-color: #ffffd0;
+      padding: 2px 5px;
+      font-weight: bold;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    section {
+      padding: 50px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 10px;
+      color: var(--primary-color);
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 70px;
+      height: 3px;
+      background-color: var(--secondary-color);
+    }
+    
+    .timeline {
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #e6e6e6;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+    }
+    
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 50px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      left: 13px;
+      top: 5px;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    
+    .timeline-content {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+    
+    .pub-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .pub-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    
+    .pub-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .pub-content {
+      padding: 20px;
+    }
+    
+    .pub-title {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .pub-authors {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    
+    .pub-venue {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #777;
+    }
+    
+    .pub-links {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .pub-links a {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #f0f0f0;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .pub-links a:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .news-item {
+      padding: 15px;
+      border-left: 3px solid var(--primary-color);
+      margin-bottom: 15px;
+      background-color: var(--light-bg);
+    }
+    
+    .news-date {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .awards-list li {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .award-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: var(--primary-color);
+    }
+    
+    .internship-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .internship-logo {
+      max-width: 150px;
+      min-width: 100px;
+    }
+    
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .activity-card {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 8px;
+      height: 100%;
+    }
+    
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      background-color: var(--light-bg);
+      color: #777;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pub-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .internship-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .activities-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-container {
+        flex-direction: column;
+      }
+    }
+
+    /* Enhanced Publication Formatting */
+    .year-section {
+      margin-bottom: 30px;
+    }
+
+    .year-heading {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--primary-color);
+    }
+
+    .publication-list {
+      list-style-type: none;
+    }
+
+    .publication-item {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+
+    .publication-image {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 
 <body>
-  
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Atsuyuki Miyai 宮井 淳行</name>
-              </p>
-              <p>
-                <font size="3">I'm Atsuyuki Miyai.  Now, I'm a 2nd-year PhD student of the <a href="https://www.cvm.t.u-tokyo.ac.jp/en/index.html"><font size="3">Yamasaki Lab</font></a> at The University of Tokyo 🇯🇵.
-                <br>  
-                <br>
-                Before that, I received my master degree under the supervision of <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja"><font size="3">Prof. Kiyoharu Aizawa</font></a> at UTokyo.
-                With his retirement approaching, I have moved to the Yamasaki Lab, but I will continue collaborative research with the <a href="http://www.hal.t.u-tokyo.ac.jp/lab/ja/index_1.xhtml"><font size="3">Aizawa Lab</font></a> and tackle with the same research topic.
-                <br>
-                <br>
-                My research focuses on the safety of foundation models. Topics that I currently focus on are safety aspects on Multimodal LLM/Agents.
-                Previously, I have contributed to the development of the field of Out-of-Distribution Detection for Vision Language Models (<a href="https://arxiv.org/abs/2306.01293"><font size="3">LoCoOp</font></a>) and the evolution to Large Multi-modal Models (<a href="https://arxiv.org/abs/2403.20331"><font size="3">UPD</font></a>). 
-                <br>
-                I also aim to contribute to recent efforts for the hallucination issues and the development of multilingual LMMs (in a Japanese part), to help realize a future where many users can trust and comfortably use AI systems.
-                <br>
-                <br>
-                I want to put an emphasis on defining new problems and aim to provide a simple and baseline approach to give insights. </font>
-                <br>
-                <br>
-                <b> <font size="3">I am seeking internships in industry or academia in 2025, focusing on the trustworthy LMMs/LLMs. Do not hesitate to contact me if there's a good fit 🤝. </font>
+  <header>
+    <div class="container">
+      <div class="profile-container">
+        <img class="profile-image" src="images/top_image/top_image.jpg" alt="Atsuyuki Miyai">
+        <div class="profile-info">
+          <h1>Atsuyuki Miyai 宮井 淳行</h1>
+          <p class="bio">I'm a 2nd-year PhD student at the <a href="https://www.cvm.t.u-tokyo.ac.jp/en/index.html">Yamasaki Lab</a>, The University of Tokyo 🇯🇵. My research focuses on the safety of foundation models, particularly on multimodal LLM/Agents.</p>
+          <p class="bio">Previously, I received my master's degree under <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Prof. Kiyoharu Aizawa</a>. 
+            
+          <p class="bio">I've contributed to Out-of-Distribution Detection for Vision Language Models (<a href="https://arxiv.org/abs/2306.01293">LoCoOp</a>) and Large Multi-modal Models (<a href="https://arxiv.org/abs/2403.20331">UPD</a>).</a>
+          <p class="bio">Currently, I am primarily focusing on two research fields: LLM (LMM) Agents and the development of Japanese LMMs, including aspects of Japanese cultures.</p></a>
+          <p class="bio highlight">I am seeking internships in industry or academia in 2025, focusing on trustworthy LMMs/LLMs. Do not hesitate to contact me if there's a good fit 🤝.</p>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="mailto:miyai@hal.t.u-tokyo.ac.jp">Email</a>
+        <a href="https://twitter.com/AtsuMiyaiAM">Twitter</a>
+        <a href="https://github.com/AtsuMiyai">Github</a>
+        <a href="https://scholar.google.co.jp/citations?user=BazeMhAAAAAJ">Google Scholar</a>
+        <a href="https://www.semanticscholar.org/author/Atsuyuki-Miyai/2188735058">Semantic Scholar</a>
+      </div>
+    </div>
+  </header>
 
-              </p> 
-              <p style="text-align:center">
-                <a href="mailto:miyai@hal.t.u-tokyo.ac.jp">Email</a> &nbsp/&nbsp
-                <a href="https://twitter.com/AtsuMiyaiAM">Twitter</a> &nbsp/&nbsp
-                <a href="https://github.com/AtsuMiyai">Github</a> &nbsp/&nbsp
-                <a href="https://scholar.google.co.jp/citations?user=BazeMhAAAAAJ">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://www.semanticscholar.org/author/Atsuyuki-Miyai/2188735058">Semantic Scholar</a> 
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/top_imaze.jpg"><img style="width:80%;max-width:80%" alt="profile photo" src="images/top_image/top_image.jpg" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                    <heading> <font size="6"> Education </font></heading>
-                    <p>
-                      <strong> <font size="4"> The University of Tokyo </font></strong><br>
-                      Ph.D. in Graduate School of Information Science and Technology <br>
-                      Supervisor: Prof. Toshihiko Yamasaki <br>
-                      <em>2024.4 - </em>
-                    </p>
-                    
-                    <p>
-                      <strong> <font size="4"> The University of Tokyo </font></strong><br>
-                      M.S. in Graduate School of Interdisciplinary Information Studies <br>
-                      Supervisor: Prof. Kiyoharu Aizawa <br>
-                      <em>2022.4 - 2024.3</em>
-                    </p>
-                    
-                    <p>
-                      <strong> <font size="4"> The University of Tokyo  </font></strong><br>
-                      B.S. in Under Graduate School of Engineering<br>
-                      Information and Communication Engineering <br> 
-                      Supervisor: Prof. Kiyoharu Aizawa <br>
-                      <em>2018.4 - 2022.3</em>
-                    </p>
-                </td>
-            </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading> <font size="6"> News </font></heading>
-                  <p>
-                    <papertitle>
-                      <span style="font-size:18px; font-weight:normal;">
-                        2025.1: 🎉 Our <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/" style="font-size:18px; font-weight:normal; text-decoration:underline;">JMMMU</a> (Japanese MMMU) has been accepted by NAACL2025!
-                        <br>
-                        2025.1: 🎉 Our <a href="https://arxiv.org/abs/2304.04521" style="font-size:18px; font-weight:normal; text-decoration:underline;">GL-MCM</a> finally has been accepted by IJCV! 
-                        <br>
-                        <br>
-                        2024.10: 🎉 We introduce <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/" style="font-size:18px; font-weight:normal; text-decoration:underline;">JMMMU</a> (Japanese MMMU)! Lets's try your favorite LMM with our JMMMU! 
-                        <br>
-                        <br>
-                        2024.8: 🎉 Our new survey "Generalized OOD detection v2", has been out! 
-                        <br>
-                        <br>
-                        2024.7: I will give an invited talk on LoCoOp at <a href="https://miru-committee.github.io/miru2024/en/" style="font-size:18px; font-weight:normal; text-decoration:underline;">MIRU2024</a> (Most prestigious Japanese CV conf.).
-                        是非、オーラル/ポスター会場にお越しください!
-                        <br>
-                        <br>
-                        2024.4: 🎉 Our new preprint, Unsolvable Problem Detection, has been out in arXiv! 
-                        <br>
-                        <br>
-                        2024.4: Doctoral program begins at the University of Tokyo.
-                        <br>
-                      </span>
-                    </papertitle>
-                    <br>
-                  </p>
-              </td>
-          </tr>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading> <font size="6"> Publications </font></heading>
-                  <p>
-                    <heading> <font size="5">International </font></heading>
-                    <p>
-                      <heading> <font size="4">2025</font></heading>
-                      <ul>
-                        <li><papertitle> <font size="3"> JMMMU: A Japanese Massive Multi-discipline Multimodal Understanding Benchmark </font></papertitle> <br>
-                          <a href='https://www.linkedin.com/in/shota-onohara/'>Shota Onohara*</a>,
-                          <u>Atsuyuki Miyai*</u>,
-                          <a href='https://imajuku.tech/'>Yuki Imajuku*</a>,
-                          <a href='https://www.linkedin.com/in/kazuki-egashira'>Kazuki Egashira*</a>,
-                          <a href='https://jeonghunbaek.net/5e50812ade674698bdffe7f4eac5c745/'>Jeonghun Baek*</a>,
-                          <a href="https://xiangyue9607.github.io/">Xiang Yue</a>,
-                          <br>
-                          <a href="https://www.phontron.com/index.php">Graham Neubig</a>, 
-                          <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                          <br>
-                          <em>NAACL (main), 2025</em>
-                          <br>
-                          <em>NeurIPS EvalEval Workshop Oral Presentation, 2024 (preliminary version)</em>
-                          <br>
-                          <a href="https://arxiv.org/abs/2410.17250">paper</a>&nbsp/&nbsp
-                          <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/">project page</a>&nbsp/&nbsp
-                          <a href="https://huggingface.co/datasets/JMMMU/JMMMU">dataset</a>&nbsp/&nbsp
-                          <a href="https://github.com/EvolvingLMMs-Lab/lmms-eval">code</a>&nbsp/&nbsp
-                          <a href="https://huggingface.co/spaces/JMMMU/JMMMU_Leaderboard">leaderboard</a>
-                          <div class="col-md-5">
-                            <a href="">
-                                <img class="img-responsive img-hover" src="images/jmmmu/jmmmu_teaser.png"  width = "600 px" ></a>
-                          </div>
-                          <br><br>
-                      <li><papertitle> <font size="3"> GL-MCM: Global and Local Maximum Concept Matching for <br> Zero-Shot Out-of-Distribution Detection </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, and 
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>International Journal of Computer Vision (IJCV), 2025</em>
-                        <br>
-                        <a href="https://arxiv.org/abs/2304.04521">paper</a> &nbsp/&nbsp
-                        <a href="https://github.com/AtsuMiyai/GL-MCM">code</a> </li> </li>
-                        <div class="col-md-5">
-                          <a href="">
-                              <img class="img-responsive img-hover" src="images/id_detection/glmcm.png"  width = "700 px" ></a>
-                        </div>
-                      </p>
-                    </ul>
-                    <heading> <font size="4">2024</font></heading>
-                    <ul>
-                      <li><papertitle> <font size="3"> Generalized Out-of-Distribution Detection and Beyond in Vision Language Model Era: A Survey </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href='https://jingkang50.github.io/'>Jingkang Yang</a>,
-                        <a href='https://zjysteven.github.io/'>Jingyang Zhang</a>,
-                        <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a>,
-                        <a href="https://yueqianlin.com/">Yueqian Lin</a>,
-                        <br>
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
-                        <a href="https://raihanjoty.github.io/">Shafiq Joty</a>,
-                        <a href='https://pages.cs.wisc.edu/~sharonli/'>Yixuan Li</a>,
-                        <a href='https://ece.duke.edu/faculty/hai-helen-li'>Hai Li</a>,
-	                      <a href='https://liuziwei7.github.io/'>Ziwei Liu</a>, 
-                        <a href='https://scholar.google.com/citations?user=rE9iY5MAAAAJ&hl=en'>Toshihiko Yamasaki</a>, <br>and
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>arXiv, 2024</em>
-                        <br>
-                        <a href="http://arxiv.org/abs/2407.21794">paper</a> &nbsp/&nbsp
-                        <a href="https://github.com/AtsuMiyai/Awesome-OOD-VLM">code</a>
-                        <div class="col-md-5">
-                          <a href="">
-                              <img class="img-responsive img-hover" src="images/ood_survey/generalized_ood_v2.png"  width = "600 px" ></a>
-                        </div>
-                        <br><br>
-                      <li><papertitle> <font size="3"> Unsolvable Problem Detection: Evaluating Trustworthiness of Vision Language Models </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href='https://jingkang50.github.io/'>Jingkang Yang</a>,
-                        <a href='https://zjysteven.github.io/'>Jingyang Zhang</a>,
-                        <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a>,
-                        <br>
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
-                        <a href='https://pages.cs.wisc.edu/~sharonli/'>Yixuan Li</a>,
-                        <a href='https://ece.duke.edu/faculty/hai-helen-li'>Hai Li</a>,
-	                      <a href='https://liuziwei7.github.io/'>Ziwei Liu</a>, and
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>arXiv, 2024</em>
-                        <br>
-                        <em>ICLR Workshop on Reliable and Responsible Foundation Models, 2024 (preliminary version)</em>
-                        <br>
-                        <a href="https://arxiv.org/abs/2403.20331">paper</a> &nbsp/&nbsp
-                        <a href="https://github.com/AtsuMiyai/UPD">code</a> &nbsp/&nbsp
-                        <a href="https://huggingface.co/datasets/MM-UPD/MM-UPD">dataset</a> &nbsp/&nbsp
-                        <a href="https://huggingface.co/spaces/MM-UPD/MM-UPD_Leaderboard">leaderboard</a> </li> </li>
-                        <div class="col-md-5">
-                          <a href="">
-                              <img class="img-responsive img-hover" src="images/UPD/upd.png"  width = "600 px" ></a>
-                        </div>
-                        <br>
-                    </ul>
-                    <heading> <font size="4">2023</font></heading>
-                      <ul>
-                      <li><papertitle> <font size="3"> Can Pre-trained Networks Detect Familiar Out-of-Distribution Data? </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, and
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>arXiv, 2023</em>
-                        <br>
-                        <a href="http://arxiv.org/abs/2310.00847">paper</a> &nbsp/&nbsp
-                        <a href="https://github.com/AtsuMiyai/PT-OOD">code</a> (comming soon)</li> </li>
-                        <div class="col-md-5">
-                          <a href="">
-                              <img class="img-responsive img-hover" src="images/PT-OOD/decision_boundary.png"  width = "600 px" ></a>
-                        </div>
-                        <br><br>
-                      <li><papertitle> <font size="3"> LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, and
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>Neural Information Processing Systems (NeurIPS), 2023</em>
-                        <br>
-                        <a href="https://arxiv.org/abs/2306.01293">paper</a> &nbsp/&nbsp
-                        <a href="https://github.com/AtsuMiyai/LoCoOp">code</a></li> </li>
-                        <div class="col-md-5">
-                          <a href="">
-                              <img class="img-responsive img-hover" src="images/LoCoOp/framework.png"  width = "550 px" ></a>
-                        </div>
-                    <br><br>
-                    <!-- <heading> <font size="5">International</font></heading>
-                    <p>
-                    <heading> <font size="4">2023</font></heading> -->
-                    <li><papertitle> <font size="3"> Rethinking Rotation in Self-Supervised Contrastive Learning:
-                      <br>
-                      Adaptive Positive or Negative Data Augmentation </font></papertitle> <br>
-                    <u>Atsuyuki Miyai</u>,
-                    <a href="https://yu1ut.com/">Qing Yu</a>, 
-                    Daiki Ikami, 
-                    <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, and
-                    <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                    <br>
-                    <em>Winter Conference on Applications of Computer Vision (WACV), 2023</em>
-                    <br>
-                    <a href="http://arxiv.org/abs/2210.12681">paper</a> &nbsp/&nbsp
-                    <a href="https://github.com/chibechan/rethinking_rotation">code</a> </li>
-                    <div class="col-md-5">
-                      <a href="">
-                          <img class="img-responsive img-hover" src="images/pnda/pnda.png"  width = "450 px" ></a>
-                    </div>
-                    </ul>
-                    </p>
-                    <br>
-                    <heading> <font size="5">Domestic (Japanese, Non-refereed)</font></heading>
-                    <p>
-                    <ul>
-                      <li><papertitle> <font size="3"> Unsolvable Problem Detection: Towards Trustworthy Vision-Language Models </font></papertitle> <br>
-                        <u>Atsuyuki Miyai</u>,
-                        <a href='https://jingkang50.github.io/'>Jingkang Yang</a>,
-                        <a href='https://zjysteven.github.io/'>Jingyang Zhang</a>,
-                        <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a>,
-                        <br>
-                        <a href="https://yu1ut.com/">Qing Yu</a>, 
-                        <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
-                        <a href='https://pages.cs.wisc.edu/~sharonli/'>Yixuan Li</a>,
-                        <a href='https://ece.duke.edu/faculty/hai-helen-li'>Hai Li</a>,
-	                      <a href='https://liuziwei7.github.io/'>Ziwei Liu</a>, and
-                        <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                        <br>
-                        <em>MIRU, 2024</em>
-                        <br><br>
-                      <li><papertitle> <font size="3"> CLIPを用いたゼロショット分布内検知 </font></papertitle> <br>
-                        <u>宮井 淳行</u>,
-                      <a href="https://yu1ut.com/">郁 青</a>, 
-                      <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">入江 豪</a>, 
-                      <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">相澤 清晴</a>
-                        <br>
-                        <em>IE, 2024, <font color="red"> IE Award </font> </em>
-                        <br><br>
-                    <li><papertitle> <font size="3"> CLIP-based In-distribution Detection </font></papertitle> <br>
-                      <u>Atsuyuki Miyai</u>,
-                      <a href="https://yu1ut.com/">Qing Yu</a>, 
-                      <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
-                      <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                      <br>
-                      <em>MIRU, 2023 (short oral) </em>
-                      <br><br>
-                    <li><papertitle> <font size="3"> Rethinking Rotation for Contrastive Learning: Adaptive Positive or Negative Data Augmentation </font></papertitle> <br>
-                    <u>Atsuyuki Miyai</u>,
-                    <a href="https://yu1ut.com/">Qing Yu</a>, 
-                    Daiki Ikami, 
-                    <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
-                    <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
-                    <br>
-                    <em>MIRU, 2022 (long oral), <font color="red"> Best Student Paper </font> </em>
-                    <br><br>
-                    <li><papertitle> <font size="3"> 自己教師あり学習のための適応的正負例データ拡張 </font></papertitle> <br>
-                      <u>宮井 淳行</u>,
-                      <a href="https://yu1ut.com/">郁 青</a>, 
-                      伊神大貴, 
-                      <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">入江 豪</a>, 
-                      <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">相澤 清晴</a>
-                      <br>
-                      <em>IPSJ (情報処理学会), 2022, <font color="red"> Student Encouragement Award </font> </em>
-                    <br>
-                    </ul>
-                  </p>
-                  </p>
-              </td>
-          </tr>
+  <section id="news">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="news-date">2025.1:</span> 🎉 Our <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/">JMMMU</a> (Japanese MMMU) has been accepted by NAACL2025!
+        </div>
+        <div class="news-item">
+          <span class="news-date">2025.1:</span> 🎉 Our <a href="https://arxiv.org/abs/2304.04521">GL-MCM</a> finally has been accepted by IJCV!
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.10:</span> 🎉 We introduce <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/">JMMMU</a> (Japanese MMMU)! Let's try your favorite LMM with our JMMMU!
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.8:</span> 🎉 Our new survey "Generalized OOD detection v2", has been out!
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.7:</span> I will give an invited talk on LoCoOp at <a href="https://miru-committee.github.io/miru2024/en/">MIRU2024</a> (Most prestigious Japanese CV conf.). 是非、オーラル/ポスター会場にお越しください!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+      
+      <div class="year-section">
+        <h3 class="year-heading">2025</h3>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="pub-title">JMMMU: A Japanese Massive Multi-discipline Multimodal Understanding Benchmark</div>
+            <div class="pub-authors">
+              <a href='https://www.linkedin.com/in/shota-onohara/'>Shota Onohara*</a>, 
+              <u>Atsuyuki Miyai*</u>, 
+              <a href='https://imajuku.tech/'>Yuki Imajuku*</a>, 
+              <a href='https://www.linkedin.com/in/kazuki-egashira'>Kazuki Egashira*</a>, 
+              <a href='https://jeonghunbaek.net/5e50812ade674698bdffe7f4eac5c745/'>Jeonghun Baek*</a>, 
+              <a href="https://xiangyue9607.github.io/">Xiang Yue</a>, 
+              <a href="https://www.phontron.com/index.php">Graham Neubig</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            </div>
+            <div class="pub-venue">NAACL (main), 2025</div>
+            <div class="pub-venue">NeurIPS EvalEval Workshop Oral Presentation, 2024 (preliminary version)</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2410.17250">paper</a>
+              <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/">project</a>
+              <a href="https://huggingface.co/datasets/JMMMU/JMMMU">dataset</a>
+              <a href="https://github.com/EvolvingLMMs-Lab/lmms-eval">code</a>
+              <a href="https://huggingface.co/spaces/JMMMU/JMMMU_Leaderboard">leaderboard</a>
+            </div>
+            <img class="publication-image" src="images/jmmmu/jmmmu_teaser.png" alt="JMMMU" style="width: 600px;">
+          </li>
           
-      </tbody></table>
+          <li class="publication-item">
+            <div class="pub-title">GL-MCM: Global and Local Maximum Concept Matching for Zero-Shot Out-of-Distribution Detection</div>
+            <div class="pub-authors">
+              <u>Atsuyuki Miyai</u>, 
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            </div>
+            <div class="pub-venue">International Journal of Computer Vision (IJCV), 2025</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2304.04521">paper</a>
+              <a href="https://github.com/AtsuMiyai/GL-MCM">code</a>
+            </div>
+            <img class="publication-image" src="images/id_detection/glmcm.png" alt="GL-MCM" style="width: 600px;">
+          </li>
+          
+          <li class="publication-item">
+            <div class="pub-title">Generalized Out-of-Distribution Detection and Beyond in Vision Language Model Era: A Survey</div>
+            <div class="pub-authors">
+              <u>Atsuyuki Miyai</u>, 
+              <a href='https://jingkang50.github.io/'>Jingkang Yang</a>, 
+              <a href='https://zjysteven.github.io/'>Jingyang Zhang</a>, 
+              <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a>, 
+              <a href="https://yueqianlin.com/">Yueqian Lin</a>, 
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href="https://raihanjoty.github.io/">Shafiq Joty</a>, 
+              <a href='https://pages.cs.wisc.edu/~sharonli/'>Yixuan Li</a>, 
+              <a href='https://ece.duke.edu/faculty/hai-helen-li'>Hai Li</a>, 
+              <a href='https://liuziwei7.github.io/'>Ziwei Liu</a>, 
+              <a href='https://scholar.google.com/citations?user=rE9iY5MAAAAJ&hl=en'>Toshihiko Yamasaki</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            </div>
+            <div class="pub-venue">arXiv, 2024</div>
+            <div class="pub-links">
+              <a href="http://arxiv.org/abs/2407.21794">paper</a>
+              <a href="https://github.com/AtsuMiyai/Awesome-OOD-VLM">code</a>
+            </div>
+            <img class="publication-image" src="images/ood_survey/generalized_ood_v2.png" alt="OOD Survey" style="width: 600px;">
+          </li>
+          
+          <li class="publication-item">
+            <div class="pub-title">Unsolvable Problem Detection: Evaluating Trustworthiness of Vision Language Models</div>
+              <u>Atsuyuki Miyai</u>, 
+              <a href='https://jingkang50.github.io/'>Jingkang Yang</a>, 
+              <a href='https://zjysteven.github.io/'>Jingyang Zhang</a>, 
+              <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a>, 
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href='https://pages.cs.wisc.edu/~sharonli/'>Yixuan Li</a>, 
+              <a href='https://ece.duke.edu/faculty/hai-helen-li'>Hai Li</a>, 
+              <a href='https://liuziwei7.github.io/'>Ziwei Liu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            <div class="pub-venue">arXiv, 2024</div>
+            <div class="pub-venue">ICLR Workshop on Reliable and Responsible Foundation Models, 2024 (preliminary version)</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2403.20331">paper</a>
+              <a href="https://github.com/AtsuMiyai/UPD">code</a>
+              <a href="https://huggingface.co/datasets/MM-UPD/MM-UPD">dataset</a>
+              <a href="https://huggingface.co/spaces/MM-UPD/MM-UPD_Leaderboard">leaderboard</a>
+            </div>
+            <img class="publication-image" src="images/UPD/upd.png" alt="UPD" style="width: 600px;">
+          </li>
+        </ul>
+      </div>
+      
+      <div class="year-section">
+        <h3 class="year-heading">2023</h3>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="pub-title">Can Pre-trained Networks Detect Familiar Out-of-Distribution Data?</div>
+              <u>Atsuyuki Miyai</u>,
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            <div class="pub-venue">arXiv, 2023</div>
+            <div class="pub-links">
+              <a href="http://arxiv.org/abs/2310.00847">paper</a>
+              <a href="https://github.com/AtsuMiyai/PT-OOD">code</a>
+            </div>
+            <img class="publication-image" src="images/PT-OOD/decision_boundary.png" alt="PT-OOD" style="width: 600px;">
+          </li>
+          
+          <li class="publication-item">
+            <div class="pub-title">LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning</div>
+              <u>Atsuyuki Miyai</u>,
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            <div class="pub-venue">Neural Information Processing Systems (NeurIPS), 2023</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2306.01293">paper</a>
+              <a href="https://github.com/AtsuMiyai/LoCoOp">code</a>
+            </div>
+            <img class="publication-image" src="images/LoCoOp/framework.png" alt="LoCoOp" style="width: 600px;">
+          </li>
+          
+          <li class="publication-item">
+            <div class="pub-title">Rethinking Rotation in Self-Supervised Contrastive Learning: Adaptive Positive or Negative Data Augmentation</div>
+              <u>Atsuyuki Miyai</u>,
+              <a href="https://yu1ut.com/">Qing Yu</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ&hl=en/">Go Irie</a>, 
+              <a href="https://scholar.google.co.jp/citations?user=CJRhhi0AAAAJ&hl=ja">Kiyoharu Aizawa</a>
+            <div class="pub-venue">Winter Conference on Applications of Computer Vision (WACV), 2023</div>
+            <div class="pub-links">
+              <a href="http://arxiv.org/abs/2210.12681">paper</a>
+              <a href="https://github.com/chibechan/rethinking_rotation">code</a>
+            </div>
+            <img class="publication-image" src="images/pnda/pnda.png" alt="PNDA" style="width: 600px;">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-        <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-                <heading> <font size="6"> Awards and Talks </font></heading>
-                <p>
-                  <papertitle><font size="4">2024.8:</font> <font size="4"> Invited Talk for LoCoOp @<em>MIRU 2024</em></font></papertitle> <br>
-                </p>
-                <p>
-                  <papertitle><font size="4">2024.3:</font> <font size="4">The Dean's Award, The Best Master Thesis Award</font></papertitle> <br>
-                </p>
-                <p>
-                  <papertitle><font size="4">2024.2:</font> <font size="4"> IE Award @<em>IE (画像工学研究会) Feb. 2024</em></font></papertitle> <br>
-                </p>
-                <p>
-                  <papertitle><font size="4">2023.7:</font> <font size="4"> Interactive Presentation Award @<em>MIRU 2023</em></font></papertitle> <br>
-                </p>
-                <p>
-                  <papertitle><font size="4">2022.7:</font> <font size="4"> Best Student Paper Award @<em>MIRU 2022</em></font></papertitle> <br>
-                  Awarded The Best Student Paper Award by The Association for Meeting on Image Recognition and Understanding  (Japanese representative scientific and professional society for researchers working on problems involving computer vision). <br>
-                  Please refer to <a href="https://sites.google.com/view/miru2022/home/award?authuser=0">the official homepage</a>.
-                </p>
-                <p>
-                  <papertitle><font size="4">2022.3:</font> <font size="4"> Student Encouragement Award @<em>Information Processing Society of Japan (IPSJ) 2022</em></font></papertitle> <br>
-                </p>
-            </td>
-        </tr>
-    </tbody></table>
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024.4 - Present</div>
+            <h3>The University of Tokyo</h3>
+            <p>Ph.D. in Graduate School of Information Science and Technology</p>
+            <p>Supervisor: Prof. Toshihiko Yamasaki</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2022.4 - 2024.3</div>
+            <h3>The University of Tokyo</h3>
+            <p>M.S. in Graduate School of Interdisciplinary Information Studies</p>
+            <p>Supervisor: Prof. Kiyoharu Aizawa</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2018.4 - 2022.3</div>
+            <h3>The University of Tokyo</h3>
+            <p>B.S. in Under Graduate School of Engineering</p>
+            <p>Information and Communication Engineering</p>
+            <p>Supervisor: Prof. Kiyoharu Aizawa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading> <font size="6"> Internship </font></heading>
-              <p>
-                <papertitle><font size="4">2023.6 ~ 2023.12:</font>    <font size="4"> OMRON SINICX  </font></papertitle> <br>
-                Research Internship.&nbsp;&nbsp; Mentor: <a href="https://yoshitakaushiku.net/index_ja.html">Dr.  Yoshitaka Ushiku</a>, <a href="https://atsushihashimoto.github.io/cv/">Dr. Atsushi Hashimoto</a>, <a href="https://ksaito-ut.github.io/">Dr. Kuniaki Saito</a>
-                <div class="col-md-5">
-                  <a href="">
-                      <img class="img-responsive img-hover" src="images/internship/omron-logo.svg"  width = "150 px" ></a>
-                </div>
-              </p>
-              <br>
-              <p>
-                <papertitle><font size="4">2022.8 ~ 2022.9:</font>    <font size="4">   Preferred Networks </font></papertitle> <br>
-                Research Internship.&nbsp;&nbsp; Mentor: <a href="https://scholar.google.co.jp/citations?user=oY1gA10AAAAJ&hl=en">Dr. Masanori Koyama</a>, <a href="https://scholar.google.com/citations?user=lDXTuNIAAAAJ&hl=ja">Dr. Kohei Hayashi</a>, <a href="https://scholar.google.com/citations?user=UwuggM4AAAAJ&hl=ja">Dr. Yuta Kikuchi</a>, Dr. Yoshihiro Yamada
-                <div class="col-md-5">
-                  <a href="">
-                      <img class="img-responsive img-hover" src="images/internship/pfn.png"  width = "250 px" ></a>
-                </div>
-              </p>
-              <br>
-              <p>
-                <papertitle><font size="4">2020.10 ~ 2023.03:</font>    <font size="4">   Pluszero Inc.  </font></papertitle> <br>
-                Project Engineer. &nbsp;I tackle natural language processing.
-                <div class="col-md-5">
-                  <a href="">
-                      <img class="img-responsive img-hover" src="images/internship/pluszero.png"  width = "200 px" ></a>
-                </div>
-              </p>
-          </td>
-      </tr>
-      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-        <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-                <heading> <font size="6"> Academic Activities </font></heading>
-                <p>
-                  <papertitle><font size="4">2023.12 ~ :</font>    <font size="4"> OpenOOD </font></papertitle> <br>
-                  Research activities. &nbsp; Collaborators: <a href="https://jingkang50.github.io/">Jingkang Yang</a> (Nanyang Technological University), <a href="https://scholar.google.com/citations?user=f3DQwmgAAAAJ&hl=en"> Jingyang Zhang</a> (Duke University), <a href='https://pages.cs.wisc.edu/~alvinming/'>Yifei Ming</a> (Salesforce Research)
-                  <div class="col-md-5">
-                    <a href="">
-                        <img class="img-responsive img-hover" src="images/openOOD/openood.png"  width = "250 px" ></a>
-                  </div>
-                  <br>
-                </p>
-                  <p>
-                  <papertitle><font size="4">2023.4 ~ :</font>    <font size="4"> IEEE Student Branch Chair @UTokyo  </font></papertitle> <br>
-                  We have a diverse range of workshops, invited talks, and hands-on activities focused on advancing knowledge and skills in a particular field or topic. 
-                  Please feel free to contact us when you visit Tokyo! <br>
-                  Please refer to <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/ieee-student-branch/home?authuser=0">the official homepage</a>.
-                </p>
-                <br>
-                  <papertitle> <font size="4"> Review Experience  </font></papertitle> <br>
-                  CVPR2024-2025, MIRU2024 (Japanese), NeurIPS2024, IJCV2024-2025, AAAI2025, MMM2025, ICLR2025, ACMTOMM2025
-            </td>
-        </tr>
-        
-      </td>
-    </tr>
-  </tbody></table><iframe frameborder="0" scrolling="no" style="border: 0px; display: none; background-color: transparent;"></iframe>
-  <div id="GOOGLE_INPUT_CHEXT_FLAG" input="null" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:false,&quot;ss&quot;:true}" style="display: none;"></div>
+
+  <section id="awards">
+    <div class="container">
+      <h2 class="section-title">Awards and Talks</h2>
+      <ul class="awards-list">
+        <li>
+          <div class="award-title">2024.8: Invited Talk for LoCoOp @MIRU 2024</div>
+        </li>
+        <li>
+          <div class="award-title">2024.3: The Dean's Award, The Best Master Thesis Award</div>
+        </li>
+        <li>
+          <div class="award-title">2024.2: IE Award @IE (画像工学研究会) Feb. 2024</div>
+        </li>
+        <li>
+          <div class="award-title">2023.7: Interactive Presentation Award @MIRU 2023</div>
+        </li>
+        <li>
+          <div class="award-title">2022.7: Best Student Paper Award @MIRU 2022</div>
+          <p>Awarded The Best Student Paper Award by The Association for Meeting on Image Recognition and Understanding (Japanese representative scientific and professional society for researchers working on problems involving computer vision).</p>
+          <p>Please refer to <a href="https://sites.google.com/view/miru2022/home/award?authuser=0">the official homepage</a>.</p>
+        </li>
+        <li>
+          <div class="award-title">2022.3: Student Encouragement Award @Information Processing Society of Japan (IPSJ) 2022</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="internships">
+    <div class="container">
+      <h2 class="section-title">Internship Experience</h2>
+      <div class="internship-item">
+        <img class="internship-logo" src="images/internship/omron-logo.svg" alt="OMRON SINICX">
+        <div>
+          <h3>OMRON SINICX (2023.6 - 2023.12)</h3>
+          <p>Research Internship</p>
+          <p>Mentors: <a href="https://yoshitakaushiku.net/index_ja.html">Dr. Yoshitaka Ushiku</a>, <a href="https://atsushihashimoto.github.io/cv/">Dr. Atsushi Hashimoto</a>, <a href="https://ksaito-ut.github.io/">Dr. Kuniaki Saito</a></p>
+        </div>
+      </div>
+      <div class="internship-item">
+        <img class="internship-logo" src="images/internship/pfn.png" alt="Preferred Networks">
+        <div>
+          <h3>Preferred Networks (2022.8 - 2022.9)</h3>
+          <p>Research Internship</p>
+          <p>Mentors: <a href="https://scholar.google.co.jp/citations?user=oY1gA10AAAAJ&hl=en">Dr. Masanori Koyama</a>, <a href="https://scholar.google.com/citations?user=lDXTuNIAAAAJ&hl=ja">Dr. Kohei Hayashi</a>, <a href="https://scholar.google.com/citations?user=UwuggM4AAAAJ&hl=ja">Dr. Yuta Kikuchi</a>, Dr. Yoshihiro Yamada</p>
+        </div>
+      </div>
+      <div class="internship-item">
+        <img class="internship-logo" src="images/internship/pluszero.png" alt="Pluszero Inc.">
+        <div>
+          <h3>Pluszero Inc. (2020.10 - 2023.03)</h3>
+          <p>Project Engineer</p>
+          <p>I tackle natural language processing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="container">
+      <h2 class="section-title">Academic Activities</h2>
+      <div class="activities-grid">
+        <div class="activity-card">
+          <h3>OpenOOD</h3>
+          <p><strong>2023.12 - Present</strong></p>
+          <p>Research activities</p>
+          <p>Collaborators: <a href="https://jingkang50.github.io/">Jingkang Yang</a> (Nanyang Technological University), <a href="https://scholar.google.com/citations?user=f3DQwmgAAAAJ&hl=en">Jingyang Zhang</a> (Duke University), <a href="https://pages.cs.wisc.edu/~alvinming/">Yifei Ming</a> (Salesforce Research)</p>
+          <img src="images/openOOD/openood.png" alt="OpenOOD" style="max-width: 100%; margin-top: 15px;">
+        </div>
+        <div class="activity-card">
+          <h3>IEEE Student Branch Chair @UTokyo</h3>
+          <p><strong>2023.4 - Present</strong></p>
+          <p>We have a diverse range of workshops, invited talks, and hands-on activities focused on advancing knowledge and skills in a particular field or topic.</p>
+          <p>Please feel free to contact us when you visit Tokyo!</p>
+          <p>Please refer to <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/ieee-student-branch/home?authuser=0">the official homepage</a>.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Review Experience</h3>
+          <p>CVPR2024-2025, MIRU2024 (Japanese), NeurIPS2024, IJCV2024-2025, AAAI2025, MMM2025, ICLR2025, ACMTOMM2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Atsuyuki Miyai. Last updated: April 2025.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
