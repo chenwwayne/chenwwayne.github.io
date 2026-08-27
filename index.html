@@ -1,687 +1,115 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>CHEN WEIWEI 陈炜炜</title>
-  <meta name="author" content="CHEN Weiwei 陈炜炜">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="31ZvV8lDKRzmoX4jcWhS1mvt2mwfbRqbmh8XR1LRI1U" />
-  <style>
-    :root {
-      --primary-color: #333;
-      --secondary-color: #f09228;
-      --text-color: #333;
-      --light-bg: #f8f9fa;
-      --border-color: #eaeaea;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    header {
-      padding: 100px 0 60px;
-      text-align: center;
-      background: #ffffff;
-      border-bottom: 1px solid var(--border-color);
-    }
-    
-    .profile-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 30px;
-    }
-    
-    .profile-image {
-      width: 190px;
-      height: auto;
-      /* border-radius: 99%; */
-      /* object-fit: cover; */
-      border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .profile-image:hover {
-      transform: scale(1.03);
-    }
-    
-    .profile-info {
-      max-width: 600px;
-      text-align: left;
-    }
-    
-    h1 {
-      font-size: clamp(2.6rem, 7vw, 5rem);
-      margin-bottom: 20px;
-      color: var(--primary-color);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      line-height: 1.1;
-    }
-    
-    .bio {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-    
-    .highlight {
-      background-color: #ffffd0;
-      padding: 2px 5px;
-      font-weight: bold;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-    
-    .social-links a {
-      display: inline-block;
-      padding: 0;
-      color: #111;
-      text-decoration: none;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.25s ease;
-    }
-    
-    .social-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -2px;
-      height: 2px;
-      background: linear-gradient(90deg, #ff7a18, #af002d 30%, #6a00f4 60%, #00c6ff 80%, #00ff94);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
-    }
-    .social-links a:hover { color: #000; }
-    .social-links a:hover::after { transform: scaleX(1); }
-    
-    section {
-      padding: 60px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-    section:nth-of-type(even) { background-color: #fafbfc; }
-    
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      position: relative;
-      padding-bottom: 10px;
-      color: var(--primary-color);
-    }
-    
-    .section-title::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 70px;
-      height: 3px;
-      background-color: var(--secondary-color);
-    }
-    
-    .timeline {
-      position: relative;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      width: 2px;
-      background-color: #eaeaea;
-      top: 0;
-      bottom: 0;
-      left: 20px;
-    }
-    
-    .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
-      padding-left: 50px;
-    }
-    
-    .timeline-dot {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #6a00f4, #00c6ff);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      left: 13px;
-      top: 5px;
-    }
-    
-    .timeline-date {
-      font-weight: bold;
-      color: var(--primary-color);
-      margin-bottom: 5px;
-    }
-    
-    .timeline-content {
-      background-color: var(--light-bg);
-      padding: 20px;
-      border-radius: 8px;
-    }
-    
-    .pub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 25px;
-    }
-    
-    .pub-card {
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .pub-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    }
-    
-    .pub-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    
-    .pub-content {
-      padding: 20px;
-    }
-    
-    .pub-title {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    
-    .pub-authors {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      color: #555;
-    }
-    
-    .pub-venue {
-      font-style: italic;
-      margin-bottom: 15px;
-      color: #777;
-    }
-    
-    .pub-links {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .pub-links a {
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: #f5f5f5;
-      border-radius: 16px;
-      font-size: 0.85rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid #ececec;
-    }
-    .pub-links a:hover { background-color: #eaeaea; transform: translateY(-1px); }
-    
-    .news-item {
-      padding: 15px;
-      border-left: 3px solid var(--primary-color);
-      margin-bottom: 15px;
-      background-color: var(--light-bg);
-    }
-    
-    .news-date {
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    
-    .awards-list li {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px dashed var(--border-color);
-    }
-    
-    .award-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-      letter-spacing: 0.01em;
-    }
-    
-    .internship-item {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid var(--border-color);
-    }
-    
-    .internship-logo {
-      max-width: 150px;
-      min-width: 100px;
-    }
-    
-    .activities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    
-    .activity-card {
-      background-color: var(--light-bg);
-      padding: 20px;
-      border-radius: 8px;
-      height: 100%;
-    }
-    
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      background-color: var(--light-bg);
-      color: #777;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .pub-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .internship-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .activities-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .profile-container {
-        flex-direction: column;
-      }
-    }
-
-    /* Enhanced Publication Formatting */
-    .year-section {
-      margin-bottom: 30px;
-    }
-
-    .year-heading {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid var(--border-color);
-      color: var(--primary-color);
-    }
-
-    .publication-list {
-      list-style-type: none;
-    }
-
-    .publication-item {
-      margin-bottom: 25px;
-      padding-bottom: 25px;
-      border-bottom: 1px dashed var(--border-color);
-    }
-
-    .publication-item:last-child { border-bottom: none; }
-
-    .publication-image {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-top: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, #ff7a18, #af002d 30%, #6a00f4 60%, #00c6ff 80%, #00ff94);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: gradientShift 8s ease-in-out infinite;
-    }
-    .caret { width: 2px; height: 1em; margin-left: 8px; background: var(--primary-color); display: inline-block; vertical-align: middle; animation: blink 1s step-end infinite; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-    @keyframes blink { 50% { opacity: 0; } }
-    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-  </style>
+  <meta name="description" content="Academic homepage of Wei-Wei Chen (Chen Weiwei), a researcher working on efficient AI and edge intelligence.">
+  <meta name="author" content="Wei-Wei Chen 陈炜炜">
+  <title>Wei-Wei Chen | Academic Homepage</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <div class="profile-container">
-        <img class="profile-image" src="images/top_image/top_image.jpg" alt="chenweiwei">
-        <div class="profile-info">
-          <h1><span class="sr-only">CHEN WEIWEI (Wayne) 陈炜炜</span><span id="typewriter-text" class="gradient-text"></span><span class="caret"></span></h1>
-          <p class="bio">Currently, I am primarily focusing on two research fields: VLM and Effecient AI.</p></a>
-          <p class="bio highlight">If you are an undergraduate or master's student interested in collaborating with me, please feel free to reach out! I will happily support you!</p>
+  <main class="page-shell">
+    <header class="site-header">
+      <div class="identity">
+        <img class="profile-image" src="images/top_image/top_image.jpg" alt="Portrait of Wei-Wei Chen">
+        <div>
+          <h1>Wei-Wei Chen <span>陈炜炜</span></h1>
+          <p class="role">Ph.D. Candidate · INTI International University</p>
+          <p class="role">Full-time Researcher · Shenzhen City Polytechnic</p>
+          <p class="contact">Email: <a href="mailto:chenwwayne@gmail.com">chenwwayne@gmail.com</a></p>
         </div>
       </div>
-      <div class="social-links">
+      <nav class="links" aria-label="External profiles">
         <a href="mailto:chenwwayne@gmail.com">Email</a>
-        <!-- <a href="https://twitter.com/AtsuMiyaiAM">Twitter</a> -->
-        <!-- <a href="https://github.com/AtsuMiyai">Github</a> -->
-        <a href="https://scholar.google.com/citations?user=SZGSIeUAAAAJ&hl=zh-CN">Google Scholar</a>
-        <a href="https://orcid.org/my-orcid?orcid=0009-0008-6778-5945">OCRID</a>
-        <!-- <a href="https://www.semanticscholar.org/author/Atsuyuki-Miyai/2188735058">Semantic Scholar</a> -->
-      </div>
-    </div>
-  </header>
+        <a href="https://scholar.google.com/citations?user=SZGSIeUAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0009-0008-6778-5945" target="_blank" rel="noopener">ORCID</a>
+      </nav>
+    </header>
 
-  <!-- <section id="news">
-    <div class="container">
-      <h2 class="section-title">Latest News</h2>
-      <div class="news-list">
-        <div class="news-item">
-          <span class="news-date">2025.6:</span> 🎉 Our <a href="https://arxiv.org/abs/2407.21794">Generalized OOD detection v2</a> has been accepted by TMLR2025!
-        </div>
-        <div class="news-item">
-          <span class="news-date">2025.6:</span> 🎉 Our <a href="https://arxiv.org/abs/2506.01952">WebChoreArena</a> has been out!
-        </div>
-        <div class="news-item">
-          <span class="news-date">2025.5:</span> 🎉 Our <a href="https://arxiv.org/abs/2505.20298">MangaLMM and MangaVQA</a> has been out! Let’s build the ultimate AI Manga Creator Assistant!
-        </div>
-        <div class="news-item">
-          <span class="news-date">2025.5:</span> 🎉 Our <a href="https://arxiv.org/abs/2403.20331v3">UPD</a> (Robust LMM Evaluation) has been accepted by ACL2025, main!
-        </div>
-        <div class="news-item">
-          <span class="news-date">2025.1:</span> 🎉 Our <a href="https://mmmu-japanese-benchmark.github.io/JMMMU/">JMMMU</a> (Japanese MMMU) has been accepted by NAACL2025, main!
-        </div>
-        <div class="news-item">
-          <span class="news-date">2025.1:</span> 🎉 Our <a href="https://arxiv.org/abs/2304.04521">GL-MCM</a> finally has been accepted by IJCV!
-        </div>
-      </div>
-    </div>
-  </section> -->
+    <section>
+      <h2>Short Bio</h2>
+      <p>I am a Ph.D. candidate in Engineering at the Faculty of Engineering and Quantity Surveying, INTI International University, Nilai, Malaysia, and a full-time researcher at the School of Information and Communication Technology, Shenzhen City Polytechnic.</p>
+      <p>My research focuses on efficient artificial intelligence, lightweight neural network architectures for edge devices, and practical edge-computing solutions. I am particularly interested in making modern AI models more accurate, efficient, and deployable in real-world settings, including vision-language models and on-device intelligence.</p>
+      <p>Before joining Shenzhen City Polytechnic, I worked on AI algorithm performance optimization at Xiaomi and researched image-algorithm applications for TFT-LCD defect detection at TCL Industrial Research Institute. I also work on research and curriculum development in AI mobile applications.</p>
+    </section>
 
-  <section id="publications">
-    <div class="container">
-      <h2 class="section-title">Publications</h2>
-      ✝: Corresponding Author
+    <section>
+      <h2>Research Interests</h2>
+      <p class="research-tags"><span>Efficient AI</span><span>Edge Intelligence</span><span>Lightweight Neural Networks</span><span>Vision-Language Models</span><span>On-device Learning</span><span>Industrial Vision</span></p>
+    </section>
 
-      <div class="year-section">
-        <ul class="publication-list">
-
-          <li class="publication-item">
-            <div class="pub-title">Enhancing FT-Transformer With a Matérn-Driven Kolmogorov-Arnold Feature Tokenizer for Tabular Data-Based In-Bed Posture Classification</div>
-            <div class="pub-authors">
-              Bing Zhou,
-              <u>Chen Weiwei✝</u>, 
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <p class="note">† Corresponding author. For the latest record, see my <a href="https://orcid.org/0009-0008-6778-5945" target="_blank" rel="noopener">ORCID profile</a>.</p>
+      <ol class="publication-list">
+        <li>
+          <div class="publication-row">
+            <img class="publication-thumb" src="images/gp-kat/GP-KAT_overview.png" alt="Illustration of the GP-KAT anomaly detection pipeline" loading="lazy">
+            <div>
+              <div class="publication-title">GP-KAT: Enhanced Kolmogorov–Arnold Transformer With Periodic Gaussian Process for Anomaly Detection in Thin-Film Transistor Array Manufacturing</div>
+              <div class="publication-authors"><u>Wei-Wei Chen</u>, Yongwei Liao, Wai Yie Leong<sup>†</sup>.</div>
+              <div class="publication-venue">IET Signal Processing, 2026 · <a class="publication-link" href="https://doi.org/10.1049/sil2/1914287" target="_blank" rel="noopener">DOI</a></div>
             </div>
-            <div class="pub-venue">IEEE Access, 2025</div>
-            <div class="pub-links">
-              <a href="https://ieeexplore.ieee.org/document/11075767">paper</a>
-              <!-- <a href="https://webchorearena.github.io/">project page</a>
-              <a href="https://github.com/WebChoreArena/WebChoreArena">code</a>
-              <a href="https://x.com/AtsuMiyaiAM/status/1929737204869615933">X (Twitter)</a> -->
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <img class="publication-thumb" src="images/kaft/kaft.png" alt="Architecture diagram for the FT-Transformer and MK-AFT method" loading="lazy">
+            <div>
+              <div class="publication-title">Enhancing FT-Transformer With a Matérn-Driven Kolmogorov-Arnold Feature Tokenizer for Tabular Data-Based In-Bed Posture Classification</div>
+              <div class="publication-authors">Bing Zhou, <u>Wei-Wei Chen</u><sup>†</sup></div>
+              <div class="publication-venue">IEEE Access, 2025 · <a class="publication-link" href="https://doi.org/10.1109/ACCESS.2025.3586365" target="_blank" rel="noopener">DOI</a></div>
             </div>
-            <img class="publication-image" src="images/kaft/kaft.png" alt="kaft" style="width: 500px;">
-          </li>
-          
-          <li class="publication-item">
-            <div class="pub-title">Optimizing In-Bed Posture Classification Using Tanh-Activated Kolmogorov–Arnold Networks (Tanh-KAN)</div>
-              <u>Chen Weiwei</u>,
-              <a>Zhou Bing</a>,
-              <a>Leong Wai Yie✝</a>
-            <div class="pub-venue">IET Signal Processing, 2025</div>
-            <div class="pub-links">
-              <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/sil2/6740194">paper</a>
-              <!-- <a href="https://github.com/chibechan/rethinking_rotation">code</a> -->
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <img class="publication-thumb" src="images/tanh_kan/tanh_kan.png" alt="Architecture diagram for the Tanh-KAN model" loading="lazy">
+            <div>
+              <div class="publication-title">Optimizing In-Bed Posture Classification Using Tanh-Activated Kolmogorov–Arnold Networks (Tanh-KAN)</div>
+              <div class="publication-authors"><u>Wei-Wei Chen</u>, Bing Zhou, Wai Yie Leong<sup>†</sup></div>
+              <div class="publication-venue">IET Signal Processing, 2025 · <a class="publication-link" href="https://doi.org/10.1049/sil2/6740194" target="_blank" rel="noopener">DOI</a></div>
             </div>
-            <img class="publication-image" src="images/tanh_kan/tanh_kan.png" alt="tanh-kan" style="width: 300px;">
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2024.5 - Present</div>
-            <h3>INTI International University</h3>
-            <p>Ph.D. in Faculty of Engineering and Quantity Surveying (FEQS)</p>
-            <p>Supervisor:
-              <a href="https://leongwaiyie.com/" target="_blank" rel="noopener">
-                Prof. Leong Wai Yie
-              </a>
-            </p>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2018.9 - 2021.7</div>
-            <h3>Fuzhou University</h3>
-            <p>M.S. in School of Physics and Information Engineering</p>
-            <p>Supervisor:
-              <a href="https://network.sid.org/network/members/profile?UserKey=0b15f3e4-78b4-4a3e-b4eb-7d38457f20dd" target="_blank" rel="noopener">
-                Prof. Frank Yan
-              </a>
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2013.9 - 2017.7</div>
-            <h3>Jimei University</h3>
-            <p>B.S. in Under School of Mechanical and Energy Engineering</p>
-            <!-- <p>Information and Communication Engineering</p> -->
-            <!-- <p>Supervisor: Prof. Kiyoharu Aizawa</p> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </li>
+      </ol>
+    </section>
 
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry"><div class="entry-meta">2024.05 – Present</div><div><strong>INTI International University</strong>, Nilai, Malaysia<br>Ph.D. in Engineering, Faculty of Engineering and Quantity Surveying<br>Supervisor: <a href="https://leongwaiyie.com/" target="_blank" rel="noopener">Prof. Leong Wai Yie</a></div></div>
+      <div class="entry"><div class="entry-meta">2018.09 – 2021.07</div><div><strong>Fuzhou University</strong>, China<br>M.E. in Integrated Circuit Engineering, School of Physics and Information Engineering<br>Supervisor: <a href="https://network.sid.org/network/members/profile?UserKey=0b15f3e4-78b4-4a3e-b4eb-7d38457f20dd" target="_blank" rel="noopener">Prof. Frank Yan</a></div></div>
+      <div class="entry"><div class="entry-meta">2013.09 – 2017.07</div><div><strong>Jimei University</strong>, China<br>B.S. in Mechanical and Energy Engineering</div></div>
+    </section>
 
-  <!-- <section id="awards">
-    <div class="container">
-      <h2 class="section-title">Awards and Talks</h2>
-      <ul class="awards-list">
-        <li>
-          <div class="award-title">2024.8: Invited Talk for LoCoOp @MIRU 2024</div>
-        </li>
-        <li>
-          <div class="award-title">2024.3: The Dean's Award, The Best Master Thesis Award</div>
-        </li>
-        <li>
-          <div class="award-title">2024.2: IE Award @IE (画像工学研究会) Feb. 2024</div>
-        </li>
-        <li>
-          <div class="award-title">2023.7: Interactive Presentation Award @MIRU 2023</div>
-        </li>
-        <li>
-          <div class="award-title">2022.7: Best Student Paper Award @MIRU 2022</div>
-          <p>Awarded The Best Student Paper Award by The Association for Meeting on Image Recognition and Understanding (Japanese representative scientific and professional society for researchers working on problems involving computer vision).</p>
-          <p>Please refer to <a href="https://sites.google.com/view/miru2022/home/award?authuser=0">the official homepage</a>.</p>
-        </li>
-        <li>
-          <div class="award-title">2022.3: Student Encouragement Award @Information Processing Society of Japan (IPSJ) 2022</div>
-        </li>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="entry"><div class="entry-meta">2022.09 – Present</div><div class="entry-body"><img class="entry-logo" src="images/work_experience/szcp.png" alt="Shenzhen City Polytechnic logo" loading="lazy"><div><strong>Shenzhen City Polytechnic</strong><br>Full-time Researcher, School of Information and Communication Technology</div></div></div>
+      <div class="entry"><div class="entry-meta">2021.06 – 2022.09</div><div class="entry-body"><img class="entry-logo" src="images/work_experience/xiaomi.png" alt="Xiaomi logo" loading="lazy"><div><strong>Xiaomi Shenzhen</strong><br>Software Engineer · AI algorithm performance optimization on Xiaomi devices</div></div></div>
+      <div class="entry"><div class="entry-meta">2019.07 – 2020.09</div><div class="entry-body"><img class="entry-logo" src="images/work_experience/tcl.png" alt="TCL logo" loading="lazy"><div><strong>TCL Industrial Research Institute</strong><br>Research Intern · Image algorithms for TFT-LCD defect detection</div></div></div>
+    </section>
+
+    <section id="awards">
+      <h2>Honors &amp; Achievements</h2>
+      <ul class="plain-list">
+        <li><strong>2026.01</strong> — Best Conference Paper Award, 9th Eurasian Conference on Educational Innovation 2026, for the paper “Fostering AI Literacy and Behavioral Engagement through Educational Robotics: A Longitudinal Study of Micro-Majors in Vocational Education”.</li>
+        <li><strong>2025.12</strong> — Third Prize, 1st Shenzhen–Hong Kong–Macao Industry–Education Integration Technology Innovation Competition (Open Challenge Track), for the project “Frontier Large-Model General Service Robot Intelligent Verification Platform” .</li>
+        <li><strong>2025.12</strong> — First Prize, 6th Guangdong Provincial Micro-lecture Competition for Technician Colleges.</li>
+        <li><strong>2024.12</strong> — First Prize, <em>Guangdong Technician</em> Excellent Paper Selection.</li>
+        <li><strong>2024.12</strong> — Third place and honorary title of “Shenzhen Technical Expert” in the Shenzhen Skills Competition (Service Robot Application Technician).</li>
+        <li><strong>2024.04</strong> — Certified vocational skill evaluator for AI Trainer, Shenzhen Artificial Intelligence Industry Association.</li>
+        <li><strong>2023.12</strong> — Lead lecturer for the provincial-level quality course “Java Application Development”.</li>
+        <li><strong>2023.05</strong> — Fourth place, Guangdong Province Mobile Light App Development Vocational Skills Competition.</li>
       </ul>
-    </div>
-  </section> -->
+    </section>
 
-  <section id="awards">
-  <div class="container">
-    <h2 class="section-title">Awards and Achievements</h2>
-      <ul class="awards-list">
-        <li>
-          <div class="award-title">2024.12.30: First Prize — <i>Guangdong Technician</i> Excellent Paper Selection</div>
-          <p>For the paper "Application Research on Sleeping Posture Classification Algorithm Based on a Novel Neural Network Architecture".</p>
-        </li>
-        <li>
-          <div class="award-title">2024.12: Second Prize — Shenzhen Skills Competition (Service Robot Application Technician)</div>
-          <p>Awarded 3rd place in the 14th Shenzhen Workers' Technical Innovation Games & 2024 Shenzhen Skills Competition; received the honorary title of "Shenzhen Technical Expert".</p>
-        </li>
-        <li>
-          <div class="award-title">2024.4.9: Qualification as Vocational Skill Evaluator</div>
-          <p>Certified as an evaluator for vocational skill level recognition (Occupation: AI Trainer), issued by Shenzhen Artificial Intelligence Industry Association.</p>
-        </li>
-        <li>
-          <div class="award-title">2023.12.22: Industry Project Participation</div>
-          <p>Second contributor to the project "Optimization of Key Scene Problems of Commercial Cleaning Robots", with a total funding of RMB 200,000.</p>
-        </li>
-        <li>
-          <div class="award-title">2023.12: Lecturer for Provincial-Level Quality Course</div>
-          <p>Served as the lead lecturer for the provincial-level quality course "Java Application Development".</p>
-        </li>
-        <li>
-          <div class="award-title">2023.9.22: Vocational Skill Certificate (Computer Programmer, Level 3)</div>
-          <p>Awarded the National Senior Worker Certificate for Computer Programming.</p>
-        </li>
-        <li>
-          <div class="award-title">2023.5: Second Prize — Guangdong Province Mobile Light App Development Competition</div>
-          <p>Won 4th place in the "2022–2023 Guangdong Province Mobile Light Application Development Vocational Skills Competition".</p>
-        </li>
-      </ul>
-    </div>
-  </section>
+    <section>
+      <h2>Beyond Research</h2>
+      <p>I enjoy traditional Chinese calligraphy outside of research. You can find <a href="calligraphy.html">some of my calligraphy works here</a>.</p>
+    </section>
 
-
-  <section id="work experience">
-    <div class="container">
-      <h2 class="section-title">Work Experience</h2>
-      <div class="internship-item">
-        <img class="internship-logo" src="images/work_experience/szcp.png" alt="szcp", style="width: 100px; height: 100px; margin-left: 25px;">
-        <div>
-          <h3 style="margin-left: 25px;">Shenzhen City Polytechnic (2022.9 - Present)</h3>
-          <p style="margin-left: 25px;">Full-time Researcher</p>
-          <!-- <p>Mentors: <a href="https://yoshitakaushiku.net/index_ja.html">Dr. Yoshitaka Ushiku</a>, <a href="https://atsushihashimoto.github.io/cv/">Dr. Atsushi Hashimoto</a>, <a href="https://ksaito-ut.github.io/">Dr. Kuniaki Saito</a></p> -->
-        </div>
-      </div>
-      <div class="internship-item">
-        <img class="internship-logo" src="images/work_experience/xiaomi.png" alt="xiaomi">
-        <div>
-          <h3>Xiaomi Shenzhen (2021.6 - 2022.9)</h3>
-          <p>Sofeware Engineer</p>
-          <p>Optimizing Algorithm Performance on Xiaomi Devices.</p>
-          <!-- <p>Mentors: <a href="https://scholar.google.co.jp/citations?user=oY1gA10AAAAJ&hl=en">Dr. Masanori Koyama</a>, <a href="https://scholar.google.com/citations?user=lDXTuNIAAAAJ&hl=ja">Dr. Kohei Hayashi</a>, <a href="https://scholar.google.com/citations?user=UwuggM4AAAAJ&hl=ja">Dr. Yuta Kikuchi</a>, Dr. Yoshihiro Yamada</p> -->
-        </div>
-      </div>
-      <div class="internship-item">
-        <img class="internship-logo" src="images/work_experience/tcl.png" alt="tcl">
-        <div>
-          <h3>TCL Research (HK) (2019.7 - 2020.9)</h3>
-          <p>intern</p>
-          <p>ADC Project: Research on Image Algorithm Applications in Semiconductor Display Scenarios.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- <section id="activities">
-    <div class="container">
-      <h2 class="section-title">Academic Activities</h2>
-      <div class="activities-grid">
-        <div class="activity-card">
-          <h3>OpenOOD</h3>
-          <p><strong>2023.12 - Present</strong></p>
-          <p>Research activities</p>
-          <p>Collaborators: <a href="https://jingkang50.github.io/">Jingkang Yang</a> (Nanyang Technological University), <a href="https://scholar.google.com/citations?user=f3DQwmgAAAAJ&hl=en">Jingyang Zhang</a> (Duke University), <a href="https://alvinmingsf.github.io/">Yifei Ming</a> (Salesforce Research)</p>
-          <img src="images/openOOD/openood.png" alt="OpenOOD" style="max-width: 100%; margin-top: 15px;">
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <section id="activities">
-    <div class="container">
-      <h2 class="section-title">Academic Activities</h2>
-      <div class="activities-grid">
-        <div class="activity-card">
-          <h3>ERA Inter-varsity Innovation Competition 2025</h3>
-          <p><strong>2025</strong></p>
-          <p>Organized by Einstein Research Academy. The International Virtual Innovation Challenge (IVIC) 2025 provides a global platform for academicians, researchers, and students to showcase innovative ideas contributing to the Sustainable Development Goals (SDGs).</p>
-          <p><a href="https://youtu.be/5dhkUQpcmu0" target="_blank">▶ Watch Presentation Video</a></p>
-          <img src="images/IVIC2025/ICIV2025_video_coverpage.jpg" alt="ERA Inter-varsity Innovation Competition 2025" style="max-width: 100%; margin-top: 15px;">
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section id="hobby">
-    <div class="container">
-      <h2 class="section-title">Hobby</h2>
-      <p>Outside of research, I enjoy traditional Chinese calligraphy works. </p>
-      <p>📚 Check out <a href="calligraphy.html">some of my works of Chinese calligraphy</a>.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 CHEN Weiwei. Last updated: April 2025.</p>
-    </div>
-  </footer>
-  <script>
-    (function(){
-      var el = document.getElementById('typewriter-text');
-      if(!el) return;
-      var text = '陈炜炜 Wayne';
-      var i = 0;
-      var deleting = false;
-      var typeSpeed = 120;
-      var deleteSpeed = 70;
-      var pauseAfterType = 1200;
-      var pauseAfterDelete = 600;
-      function tick(){
-        if(!deleting){
-          if(i < text.length){ el.textContent = text.slice(0, i+1); i++; setTimeout(tick, typeSpeed); }
-          else { setTimeout(function(){ deleting = true; tick(); }, pauseAfterType); }
-        } else {
-          if(i > 0){ el.textContent = text.slice(0, i-1); i--; setTimeout(tick, deleteSpeed); }
-          else { setTimeout(function(){ deleting = false; tick(); }, pauseAfterDelete); }
-        }
-      }
-      tick();
-    })();
-  </script>
+    <footer>© 2026 Wei-Wei Chen · <a href="https://orcid.org/0009-0008-6778-5945" target="_blank" rel="noopener">ORCID: 0009-0008-6778-5945</a></footer>
+  </main>
 </body>
 </html>
